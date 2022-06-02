@@ -1,0 +1,54 @@
+    /*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package pbl3quanlynhanvien.DTO;
+
+/**
+ *
+ * @author PC
+ */
+public class CBBChucVuItem {
+    private int id_chucvu;
+    private String tenchucvu;
+    private double luongcoban;
+
+
+    public int getId_chucvu() {
+        return id_chucvu;
+    }
+
+    public void setId_chucvu(int id_chucvu) {
+        this.id_chucvu = id_chucvu;
+    }
+
+    public String getTenchucvu() {
+        return tenchucvu;
+    }
+
+    public CBBChucVuItem() {
+    }
+
+    public CBBChucVuItem(int id_chucvu, String tenchucvu, double luongcoban) {
+        this.id_chucvu = id_chucvu;
+        this.tenchucvu = tenchucvu;
+        this.luongcoban = luongcoban;
+    }
+
+    public void setTenchucvu(String tenchucvu) {
+        this.tenchucvu = tenchucvu;
+    }
+
+    public double getLuongcoban() {
+        return luongcoban;
+    }
+
+    public void setLuongcoban(double luongcoban) {
+        this.luongcoban = luongcoban;
+    }
+
+    @Override
+    public String toString() {
+        return tenchucvu;
+    }
+}
