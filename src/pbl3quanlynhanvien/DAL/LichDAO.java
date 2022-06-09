@@ -72,6 +72,8 @@ public class LichDAO {
         return list;
     }
     
+    //Khong can
+    
     public String checkBuoiLam(Date time)
     {
         try {
@@ -133,7 +135,7 @@ public class LichDAO {
     public String getBuoiLamByID_Lich(int id_lich)
     {
         String buoi = "";
-            String sql = "select buoi from lich where id_lich = ?";
+            String sql = "select buoi from lich where id_lich = ? order by id_lich asc";
                     try(
                             Connection con = DatabaseHelper.openConnection();
                             PreparedStatement psttm = con.prepareStatement(sql);) {
@@ -148,6 +150,33 @@ public class LichDAO {
         }
                     return buoi;
     }
-            
+    
+    public List<Integer> getAllIdLichCurentDayByIdNhanVien(String id_nhanvien)
+    {
+        List<Integer> list = new ArrayList<>();
+        
+        int id_lich =0;
+            String sql = "select * from nhanvien_lich where id_lich = ? and id_nhanvien = ?";
+                    try(
+                            Connection con = DatabaseHelper.openConnection();
+                            PreparedStatement psttm = con.prepareStatement(sql);) {
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+                    LocalDateTime now = LocalDateTime.now();  
+                    String day = dtf.format(now);
+                    
+                    psttm.setString(1, day);
+                    psttm.setString(2, id_nhanvien);
+                    ResultSet rs = psttm.executeQuery();
+                    if(rs.next())
+                    {
+                        list.add(id_lich = rs.getInt("id_lich")) ;
+                    }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return list;
+        
+    }
             
 }

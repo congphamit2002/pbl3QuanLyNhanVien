@@ -5,6 +5,7 @@
 package pbl3quanlynhanvien.BLL;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -27,11 +28,11 @@ import pbl3quanlynhanvien.DTO.Nhanvien_Lich;
  */
 public class QuanLyTienLuong {
 //    .
+
     private static QuanLyTienLuong Instance;
 
     public static QuanLyTienLuong getInstance() {
-        if(Instance == null)
-        {
+        if (Instance == null) {
             Instance = new QuanLyTienLuong();
         }
         return Instance;
@@ -39,8 +40,8 @@ public class QuanLyTienLuong {
 
     private static void setInstance(QuanLyTienLuong Instance) {
     }
-    public LuongNhanVien_ChiTiet tinhTimeLamVaSoPhutDiTre (String buoi, Date timeStart, Date timeEnd)
-    {
+
+    public LuongNhanVien_ChiTiet tinhTimeLamVaSoPhutDiTre(String buoi, Date timeStart, Date timeEnd) {
         double hour = 0;
         double phut = 0;
         LuongNhanVien_ChiTiet luong = new LuongNhanVien_ChiTiet();
@@ -56,94 +57,82 @@ public class QuanLyTienLuong {
             Date date3 = format.parse(time3);
             Date date4 = format.parse(time4);
             switch (buoi) {
-                case "Sang":
-                {
-                    if(timeStart != null && timeEnd != null)
-                    {
-                        if(date1.getTime() - timeStart.getTime() >= 0 && timeEnd.getTime() - date2.getTime() >= 0) //di som ve tre
+                case "Sang": {
+                    if (timeStart != null && timeEnd != null) {
+                        if (date1.getTime() - timeStart.getTime() >= 0 && timeEnd.getTime() - date2.getTime() >= 0) //di som ve tre
                         {
-                            hour = (date2.getTime() - date1.getTime())/3600000.0;
-                        }else if(date1.getTime() - timeStart.getTime() >= 0 && timeEnd.getTime() - date2.getTime() <= 0) //di som ve som
-                    {
-                        hour = (timeEnd.getTime() - date1.getTime())/3600000.0;
-                        phut = (date2.getTime() - timeEnd.getTime())/60000.0;
-                        
-                    }else if( date1.getTime() - timeStart.getTime() <= 0 && timeEnd.getTime() - date2.getTime() >= 0) //di tre ve tre
-                    {
-                        hour = (date2.getTime() - timeStart.getTime())/3600000.0;
-                        phut = (timeStart.getTime() - date1.getTime())/60000.0;
-                    }else  //di tre ve som
-                    {
-                        
-                        hour = (timeEnd.getTime() - timeStart.getTime())/3600000.0;
-                        phut = (timeStart.getTime() - date1.getTime())/60000.0 + (date2.getTime() - timeEnd.getTime())/60000.0;
-                    }
-                    }
-                             
-                    break;
-                }
-                
-                case "Chieu":
-                {
-                    if(timeStart != null && timeEnd != null)
-                    {
-                        if(date2.getTime() - timeStart.getTime() >= 0 && timeEnd.getTime() - date3.getTime() >= 0) //di som ve tre
+                            hour = (date2.getTime() - date1.getTime()) / 3600000.0;
+                        } else if (date1.getTime() - timeStart.getTime() >= 0 && timeEnd.getTime() - date2.getTime() <= 0) //di som ve som
                         {
-                            hour = (date3.getTime() - date2.getTime())/3600000.0;
+                            hour = (timeEnd.getTime() - date1.getTime()) / 3600000.0;
+                            phut = (date2.getTime() - timeEnd.getTime()) / 60000.0;
+
+                        } else if (date1.getTime() - timeStart.getTime() <= 0 && timeEnd.getTime() - date2.getTime() >= 0) //di tre ve tre
+                        {
+                            hour = (date2.getTime() - timeStart.getTime()) / 3600000.0;
+                            phut = (timeStart.getTime() - date1.getTime()) / 60000.0;
+                        } else //di tre ve som
+                        {
+
+                            hour = (timeEnd.getTime() - timeStart.getTime()) / 3600000.0;
+                            phut = (timeStart.getTime() - date1.getTime()) / 60000.0 + (date2.getTime() - timeEnd.getTime()) / 60000.0;
                         }
-                        //neu di som ve som
-                        else if(date2.getTime() - timeStart.getTime() >= 0 && timeEnd.getTime() - date3.getTime() <= 0)
-                    {
-                        hour = (timeEnd.getTime() - date2.getTime())/3600000.0;
-                        phut = (date3.getTime() - timeEnd.getTime())/60000.0;
-                        
-                    }else if( date2.getTime() - timeStart.getTime() <= 0 && timeEnd.getTime() - date3.getTime() >= 0) //di tre ve tre
-                    {
-                        hour = (date3.getTime() - timeStart.getTime())/3600000.0;
-                        phut = (timeStart.getTime() - date2.getTime())/60000.0;
-                    }else {
-                        
-                        hour = (timeEnd.getTime() - timeStart.getTime())/3600000.0;
-                        phut = (timeStart.getTime() - date2.getTime())/60000.0 + (date3.getTime() - timeEnd.getTime())/60000.0;
                     }
-                        
-                    }
+
                     break;
                 }
-                
-                case "Toi":
-                {
-                    if(timeStart != null && timeEnd != null)
-                    {
-                        if(date3.getTime() - timeStart.getTime() >= 0 && timeEnd.getTime() - date4.getTime() >= 0) //di som ve tre
+
+                case "Chieu": {
+                    if (timeStart != null && timeEnd != null) {
+                        if (date2.getTime() - timeStart.getTime() >= 0 && timeEnd.getTime() - date3.getTime() >= 0) //di som ve tre
                         {
-                            hour = (date4.getTime() - date3.getTime())/3600000.0;
+                            hour = (date3.getTime() - date2.getTime()) / 3600000.0;
+                        } //neu di som ve som
+                        else if (date2.getTime() - timeStart.getTime() >= 0 && timeEnd.getTime() - date3.getTime() <= 0) {
+                            hour = (timeEnd.getTime() - date2.getTime()) / 3600000.0;
+                            phut = (date3.getTime() - timeEnd.getTime()) / 60000.0;
+
+                        } else if (date2.getTime() - timeStart.getTime() <= 0 && timeEnd.getTime() - date3.getTime() >= 0) //di tre ve tre
+                        {
+                            hour = (date3.getTime() - timeStart.getTime()) / 3600000.0;
+                            phut = (timeStart.getTime() - date2.getTime()) / 60000.0;
+                        } else {
+
+                            hour = (timeEnd.getTime() - timeStart.getTime()) / 3600000.0;
+                            phut = (timeStart.getTime() - date2.getTime()) / 60000.0 + (date3.getTime() - timeEnd.getTime()) / 60000.0;
                         }
-                        //neu di som ve som
-                        
-                        else if(date3.getTime() - timeStart.getTime() >= 0 && timeEnd.getTime() - date4.getTime() <= 0)
-                    {
-                        hour = (timeEnd.getTime() - date3.getTime())/3600000.0;
-                        phut = (date4.getTime() - timeEnd.getTime())/60000.0;
-                        
-                    }else if( date3.getTime() - timeStart.getTime() <= 0 && timeEnd.getTime() - date4.getTime() >= 0) //di tre ve tre
-                    {
-                        hour = (date4.getTime() - timeStart.getTime())/3600000.0;
-                        phut = (timeStart.getTime() - date3.getTime())/60000.0;
-                    }else  {
-                        
-                        hour = (timeEnd.getTime() - timeStart.getTime())/3600000.0;
-                        phut = (timeStart.getTime() - date3.getTime())/60000.0 + (date4.getTime() - timeEnd.getTime())/60000.0;
-                    }
+
                     }
                     break;
                 }
-                    
+
+                case "Toi": {
+                    if (timeStart != null && timeEnd != null) {
+                        if (date3.getTime() - timeStart.getTime() >= 0 && timeEnd.getTime() - date4.getTime() >= 0) //di som ve tre
+                        {
+                            hour = (date4.getTime() - date3.getTime()) / 3600000.0;
+                        } //neu di som ve som
+                        else if (date3.getTime() - timeStart.getTime() >= 0 && timeEnd.getTime() - date4.getTime() <= 0) {
+                            hour = (timeEnd.getTime() - date3.getTime()) / 3600000.0;
+                            phut = (date4.getTime() - timeEnd.getTime()) / 60000.0;
+
+                        } else if (date3.getTime() - timeStart.getTime() <= 0 && timeEnd.getTime() - date4.getTime() >= 0) //di tre ve tre
+                        {
+                            hour = (date4.getTime() - timeStart.getTime()) / 3600000.0;
+                            phut = (timeStart.getTime() - date3.getTime()) / 60000.0;
+                        } else {
+
+                            hour = (timeEnd.getTime() - timeStart.getTime()) / 3600000.0;
+                            phut = (timeStart.getTime() - date3.getTime()) / 60000.0 + (date4.getTime() - timeEnd.getTime()) / 60000.0;
+                        }
+                    }
+                    break;
+                }
+
                 default:
                     throw new AssertionError();
             }
-            
-           
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -153,55 +142,60 @@ public class QuanLyTienLuong {
         System.out.println("\t\t minute " + phut);
         return luong;
     }
-    
-    public List<LuongNhanVien> getAllLuongNhanVien(String tenchucvu)
-    {
+
+    public List<LuongNhanVien> getAllLuongNhanVien(String tenchucvu) {
         List<LuongNhanVien> listLuongNhanVien = new ArrayList<LuongNhanVien>();
         List<String> listId_nhanvien = PersonDAO.getInstance().getAllId_nhanvienByChucVu(tenchucvu);
         try {
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM");  
-                    LocalDateTime now = LocalDateTime.now();  
-                    String day = dtf.format(now);
-        for (String id_nhanvien : listId_nhanvien) {
-            List<Nhanvien_Lich> listNVL = NhanVien_LichDAO.getInstance().getAllNhanVienLichByIDAndThang(id_nhanvien, day);
-            double hour = 0, minute = 0;
-            int songaylam = 0, songaynghi = 0;
-            for (Nhanvien_Lich nhanvien_Lich : listNVL) {
-                
-                if(nhanvien_Lich.getThoigianbatdau() != null && nhanvien_Lich.getThoigianketthuc() != null)
-                {
-                    DateFormat format = new SimpleDateFormat("HH:mm:ss");
-                            int hourStart = nhanvien_Lich.getThoigianbatdau().getHours();
-                             int minuteStart = nhanvien_Lich.getThoigianbatdau().getMinutes();
-                              int secondStart = nhanvien_Lich.getThoigianbatdau().getSeconds();
-                              
-                              int hourEnd = nhanvien_Lich.getThoigianketthuc().getHours();
-                             int minuteEnd = nhanvien_Lich.getThoigianketthuc().getMinutes();
-                              int secondEnd = nhanvien_Lich.getThoigianketthuc().getSeconds();
-                            String timeStart = "" + hourStart + ":" +minuteStart + ":" + secondStart;
-                            String timeEnd = "" + hourEnd + ":" +minuteEnd + ":" + secondEnd;
-                                System.out.println("Time start " + timeStart);
-                                System.out.println("Time end " + timeEnd);
-                            
-                            Date date1 = format.parse(timeStart);
-                            Date date2 = format.parse(timeEnd);
-                LuongNhanVien_ChiTiet luongchitiet = QuanLyTienLuong.getInstance().tinhTimeLamVaSoPhutDiTre
-                                                     (LichDAO.getInstance().getBuoiLamByID_Lich(nhanvien_Lich.getId_lich())
-                                                     , date1, date2);
-                hour += luongchitiet.getSoGioLam();
-                minute += luongchitiet.getSoPhutDiTre();
-                    System.out.println("\thour " +hour);
-                    System.out.println("\tminute " +minute);
-                
-                    songaylam += 1;
-                    
-                    System.out.println("\t so ngay lam " + songaylam);
-                
-                }else {
-                    songaynghi++;
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM");
+            LocalDateTime now = LocalDateTime.now();
+            String day = dtf.format(now);
+            for (String id_nhanvien : listId_nhanvien) {
+                List<Nhanvien_Lich> listNVL = NhanVien_LichDAO.getInstance().getAllNhanVienLichByIDAndThang(id_nhanvien, day);
+                double hour = 0, minute = 0;
+                int songaylam = 0, songaynghi = 0;
+                for (Nhanvien_Lich nhanvien_Lich : listNVL) {
+
+                    if (nhanvien_Lich.getThoigianbatdau() != null && nhanvien_Lich.getThoigianketthuc() != null) {
+                        DateFormat format = new SimpleDateFormat("HH:mm:ss");
+                        int hourStart = nhanvien_Lich.getThoigianbatdau().getHours();
+                        int minuteStart = nhanvien_Lich.getThoigianbatdau().getMinutes();
+                        int secondStart = nhanvien_Lich.getThoigianbatdau().getSeconds();
+
+                        int hourEnd = nhanvien_Lich.getThoigianketthuc().getHours();
+                        int minuteEnd = nhanvien_Lich.getThoigianketthuc().getMinutes();
+                        int secondEnd = nhanvien_Lich.getThoigianketthuc().getSeconds();
+                        String timeStart = "" + hourStart + ":" + minuteStart + ":" + secondStart;
+                        String timeEnd = "" + hourEnd + ":" + minuteEnd + ":" + secondEnd;
+                        System.out.println("Time start " + timeStart);
+                        System.out.println("Time end " + timeEnd);
+
+                        Date date1 = format.parse(timeStart);
+                        Date date2 = format.parse(timeEnd);
+                        LuongNhanVien_ChiTiet luongchitiet = QuanLyTienLuong.getInstance().tinhTimeLamVaSoPhutDiTre(LichDAO.getInstance().getBuoiLamByID_Lich(nhanvien_Lich.getId_lich()),
+                                 date1, date2);
+                        if ((ChucVuDAO.getInstance().getLuongCoBanByTenChucVu(tenchucvu) * 5.5 - (luongchitiet.getSoPhutDiTre() / 10.0) * 5000) < 0) {
+                            hour += 0;
+                            minute += 0;
+                            songaylam += 1;
+                        } else {
+                            if(hour >= 0)
+                                hour += luongchitiet.getSoGioLam();
+                            if(minute >= 0)
+                                minute += luongchitiet.getSoPhutDiTre();
+                            System.out.println("\thour " + hour);
+                            System.out.println("\tminute " + minute);
+
+                            songaylam += 1;
+
+                            System.out.println("\t so ngay lam " + songaylam);
+                        }
+
+                    } else {
+                        songaynghi++;
+                    }
                 }
-            }
-            
+
                 LuongNhanVien luongnhanvien = new LuongNhanVien();
                 luongnhanvien.setId_nhanvien(id_nhanvien);
                 luongnhanvien.setHoTen(PersonDAO.getInstance().getHoTenById_nhanvien(id_nhanvien));
@@ -211,29 +205,28 @@ public class QuanLyTienLuong {
                 luongnhanvien.setSoNgayNghi(songaynghi);
                 luongnhanvien.setSoGioLam(hour);
                 luongnhanvien.setSoPhutDiTre(minute);
-                double luong = ChucVuDAO.getInstance().getLuongCoBanByTenChucVu(tenchucvu) * hour - (minute/10.0) * 5000;
+                double luong = ChucVuDAO.getInstance().getLuongCoBanByTenChucVu(tenchucvu) * hour - (minute / 10.0) * 5000;
                 luongnhanvien.setLuong(luong);
                 listLuongNhanVien.add(luongnhanvien);
-        }
-        
+            }
+
         } catch (Exception e) {
         }
         return listLuongNhanVien;
     }
-    
-    public void renderToTable(DefaultTableModel model, String tenchucvu)
-    {
+
+    public void renderToTable(DefaultTableModel model, String tenchucvu) {
         model.setRowCount(0);
-        
+        DecimalFormat df = new DecimalFormat("#.###");
         for (LuongNhanVien luongNhanVien : QuanLyTienLuong.getInstance().getAllLuongNhanVien(tenchucvu)) {
-            model.addRow(new Object[]{luongNhanVien.getId_nhanvien(), luongNhanVien.getHoTen(), luongNhanVien.getLuongCoBan()
-            , luongNhanVien.getSoNgayPhaiLam(),luongNhanVien.getSoNgayDiLam(), luongNhanVien.getSoNgayNghi(), luongNhanVien.getSoGioLam(), luongNhanVien.getSoPhutDiTre(), luongNhanVien.getLuong()});
+            model.addRow(new Object[]{luongNhanVien.getId_nhanvien(), luongNhanVien.getHoTen(), luongNhanVien.getLuongCoBan(),
+                 luongNhanVien.getSoNgayPhaiLam(), luongNhanVien.getSoNgayDiLam(), luongNhanVien.getSoNgayNghi(), 
+                 df.format(luongNhanVien.getSoGioLam()), df.format(luongNhanVien.getSoPhutDiTre()), df.format(luongNhanVien.getLuong())});
         }
         model.fireTableDataChanged();
     }
-    
-    public boolean updateLuongCoBan(double luongcoban, String tenchucvu)
-    {
+
+    public boolean updateLuongCoBan(double luongcoban, String tenchucvu) {
         return ChucVuDAO.getInstance().updateLuongCoBan(luongcoban, tenchucvu);
     }
 }

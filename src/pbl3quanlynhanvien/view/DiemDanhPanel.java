@@ -49,13 +49,14 @@ public class DiemDanhPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         lblSoNgayDiLam = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        btnDiemDanh = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         lblTimeStart = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lblTimeEnd = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lblBuoiLam = new javax.swing.JLabel();
+        btnCheckIn = new javax.swing.JButton();
+        btnCheckOut = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 204, 0));
@@ -73,20 +74,11 @@ public class DiemDanhPanel extends javax.swing.JPanel {
 
         jLabel7.setText("Số ngày đi làm:");
 
-        btnDiemDanh.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnDiemDanh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pbl3quanlynhanvien/icons/diemdanh.png"))); // NOI18N
-        btnDiemDanh.setText("ĐIỂM DANH");
-        btnDiemDanh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDiemDanhActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Điểm danh lần 1 lúc:");
+        jLabel3.setText("Check-in lúc");
 
         lblTimeStart.setText("null");
 
-        jLabel6.setText("Điểm danh lần 2 lúc:");
+        jLabel6.setText("Check-out lúc");
 
         lblTimeEnd.setText("null");
 
@@ -94,42 +86,51 @@ public class DiemDanhPanel extends javax.swing.JPanel {
 
         lblBuoiLam.setText("jLabel8");
 
+        btnCheckIn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnCheckIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pbl3quanlynhanvien/icons/check in 16.png"))); // NOI18N
+        btnCheckIn.setText("Check-in");
+        btnCheckIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckInActionPerformed(evt);
+            }
+        });
+
+        btnCheckOut.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnCheckOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pbl3quanlynhanvien/icons/check out 16.png"))); // NOI18N
+        btnCheckOut.setText("Check-out");
+        btnCheckOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckOutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
+                    .addComponent(jSeparator2)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1)
+                            .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
+                                .addComponent(jLabel2)
+                                .addGap(89, 89, 89)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblSoNgayDiLam)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(89, 89, 89)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(lblSoNgayDiLam)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lblCurrentDay)
-                                                .addGap(124, 124, 124)
-                                                .addComponent(lblDiemDanh))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lblTimeDiemDanh)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lblBuoiLam)
-                                                .addGap(281, 281, 281)))))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jSeparator2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblCurrentDay)
+                                        .addGap(124, 124, 124)
+                                        .addComponent(lblDiemDanh))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblTimeDiemDanh)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblBuoiLam)
+                                        .addGap(281, 281, 281))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(300, 300, 300)
-                                .addComponent(btnDiemDanh))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel7))
@@ -140,12 +141,15 @@ public class DiemDanhPanel extends javax.swing.JPanel {
                                 .addGap(52, 52, 52)
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblTimeEnd)))
-                        .addGap(0, 110, Short.MAX_VALUE)))
+                                .addComponent(lblTimeEnd))
+                            .addComponent(jLabel4))
+                        .addGap(0, 190, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
+                .addGap(164, 164, 164)
+                .addComponent(btnCheckIn)
+                .addGap(85, 85, 85)
+                .addComponent(btnCheckOut)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -180,7 +184,9 @@ public class DiemDanhPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnDiemDanh)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCheckIn)
+                    .addComponent(btnCheckOut))
                 .addGap(34, 34, 34))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -225,19 +231,19 @@ public class DiemDanhPanel extends javax.swing.JPanel {
         if(nhanvien.getThoigianketthuc()!= null) {
             lblTimeEnd.setText(nhanvien.getThoigianketthuc().toString());
         }else {
-            lblTimeEnd.setText("Chưa điểm danh");
+            lblTimeEnd.setText("CHƯA ĐIỂM DANH");
         }
                 }
         
         
     }
     
-    private void btnDiemDanhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiemDanhActionPerformed
+    private void btnCheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckInActionPerformed
         // TODO add your handling code here:
         
         ShareData data = new ShareData();
         
-        boolean isSuccess = QuanLyDiemDanhBLL.getInstance().thucHienDiemDanh(data.getId_nhanvien());
+        boolean isSuccess = QuanLyDiemDanhBLL.getInstance().checkIn(data.getId_nhanvien());
         if(isSuccess)
         {
             try {
@@ -247,19 +253,44 @@ public class DiemDanhPanel extends javax.swing.JPanel {
                     java.sql.Timestamp sqlTS = new java.sql.Timestamp(now.getTime());
                     lblTimeDiemDanh.setText(sqlTS.toString());
                     lblDiemDanh.setText("ĐÃ ĐIỂM DANH");
-                    MessageDialogHelper.showMessageDialog(this, "Điểm Danh Thành Công", "Thông Báo");
+                    MessageDialogHelper.showMessageDialog(this, "CheckIn Thành Công", "Thông Báo");
             } catch (Exception e) {
             }
         }else {
-            MessageDialogHelper.showErrorDialog(this, "Không phải ca điểm danh của bạn hoặc bạn đã thực hiện điểm danh đủ số lần quy định", "ERROR");
+            MessageDialogHelper.showErrorDialog(this, "Không phải ca CheckIn của bạn hoặc bạn đã thực hiện CheckIn đủ số lần quy định", "ERROR");
         }
         
         initLable();
-    }//GEN-LAST:event_btnDiemDanhActionPerformed
+    }//GEN-LAST:event_btnCheckInActionPerformed
+
+    private void btnCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutActionPerformed
+        // TODO add your handling code here:
+        
+        ShareData data = new ShareData();
+        
+        boolean isSuccess = QuanLyDiemDanhBLL.getInstance().checkOut(data.getId_nhanvien());
+        if(isSuccess)
+        {
+            try {
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                    Date date = new Date();
+                    Date now = dateFormat.parse(dateFormat.format(date));
+                    java.sql.Timestamp sqlTS = new java.sql.Timestamp(now.getTime());
+                    lblTimeDiemDanh.setText(sqlTS.toString());
+                    lblDiemDanh.setText("ĐÃ ĐIỂM DANH");
+                    MessageDialogHelper.showMessageDialog(this, "CheckOut Thành Công", "Thông Báo");
+            } catch (Exception e) {
+            }
+        }else {
+            MessageDialogHelper.showErrorDialog(this, "CheckOut Thất Bại", "ERROR");
+        }
+        initLable();
+    }//GEN-LAST:event_btnCheckOutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDiemDanh;
+    private javax.swing.JButton btnCheckIn;
+    private javax.swing.JButton btnCheckOut;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

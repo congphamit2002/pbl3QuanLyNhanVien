@@ -28,6 +28,7 @@ public class MainForm extends javax.swing.JFrame {
     private LichLamViecMoiNhanVienPanel LichLamViec1NVPanel;
     private DiemDanhPanel diemDanhPanel;
     private DoiMatKhauPanel doiMatKhauPanel;
+    private DetailProfile detailProfilePanel;
     
     public MainForm() {
         initComponents();
@@ -86,6 +87,8 @@ public class MainForm extends javax.swing.JFrame {
         mnuDanhMuc_DiemDanh = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
         mnuDanhMuc_LichLamViec1NV = new javax.swing.JMenuItem();
+        jSeparator23 = new javax.swing.JPopupMenu.Separator();
+        mnuDanhSach_ThongTinCaNhan = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         mnuDangKyBan = new javax.swing.JMenu();
         mnuDangKyBan_DangKyBan = new javax.swing.JMenuItem();
@@ -326,6 +329,15 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
         mnuDanhMuc.add(mnuDanhMuc_LichLamViec1NV);
+        mnuDanhMuc.add(jSeparator23);
+
+        mnuDanhSach_ThongTinCaNhan.setText("Thông tin cá nhân");
+        mnuDanhSach_ThongTinCaNhan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuDanhSach_ThongTinCaNhanActionPerformed(evt);
+            }
+        });
+        mnuDanhMuc.add(mnuDanhSach_ThongTinCaNhan);
         mnuDanhMuc.add(jSeparator2);
 
         jMenuBar1.add(mnuDanhMuc);
@@ -565,6 +577,20 @@ public class MainForm extends javax.swing.JFrame {
         tplMainBoard.setSelectedComponent(doiMatKhauPanel);
     }//GEN-LAST:event_mnuHeThong_DoiMKActionPerformed
 
+    private void mnuDanhSach_ThongTinCaNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuDanhSach_ThongTinCaNhanActionPerformed
+        // TODO add your handling code here:
+        if(detailProfilePanel == null)
+        {
+            detailProfilePanel = new DetailProfile();
+            ImageIcon icon = new ImageIcon(getClass()
+                    .getResource("/pbl3quanlynhanvien/icons/lichlamvie1nv-16.png"));
+            
+            tplMainBoard.addTab("", icon, detailProfilePanel, "Đổi mật khẩu");
+        }
+        
+        tplMainBoard.setSelectedComponent(detailProfilePanel);
+    }//GEN-LAST:event_mnuDanhSach_ThongTinCaNhanActionPerformed
+
     private void processLoginSuccessful(){
         tplMainBoard.removeAll();
         lblLoginName.setText(ShareData.getNguoiDangNhap().getUsername());
@@ -578,7 +604,7 @@ public class MainForm extends javax.swing.JFrame {
                 btnDiemDanh.setEnabled(false);
                 btnDangKyLichBan.setEnabled(false);
                 btnLichLamViecMoiNhanVien.setEnabled(false);
-                
+                mnuDanhSach_ThongTinCaNhan.setEnabled(false);
                 mnuDanhMuc_QLNV.setEnabled(true);
                 mnuDanhMuc_LichLamViec.setEnabled(true);
                 mnuDanhMuc_TinhLuong.setEnabled(true);
@@ -593,6 +619,7 @@ public class MainForm extends javax.swing.JFrame {
                 btnDiemDanh.setEnabled(true);
                 btnDangKyLichBan.setEnabled(true);
                 btnLichLamViecMoiNhanVien.setEnabled(true);
+                mnuDanhSach_ThongTinCaNhan.setEnabled(true);
                 
                 mnuDanhMuc_QLNV.setEnabled(false);
                 mnuDanhMuc_LichLamViec.setEnabled(false);
@@ -664,6 +691,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator20;
     private javax.swing.JToolBar.Separator jSeparator21;
     private javax.swing.JPopupMenu.Separator jSeparator22;
+    private javax.swing.JPopupMenu.Separator jSeparator23;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
@@ -684,6 +712,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuDanhMuc_LichLamViec1NV;
     private javax.swing.JMenuItem mnuDanhMuc_QLNV;
     private javax.swing.JMenuItem mnuDanhMuc_TinhLuong;
+    private javax.swing.JMenuItem mnuDanhSach_ThongTinCaNhan;
     private javax.swing.JMenu mnuHeThong;
     private javax.swing.JMenuItem mnuHeThong_DoiMK;
     private javax.swing.JMenuItem mnuHeThong_Exit;

@@ -45,7 +45,6 @@ public class LichChiTietDAO {
                 lich.setBuoi(rs.getString("buoi"));
                 lich.setThoigianbatdau(rs.getTime("thoigianbatdau"));
                 lich.setThoigianketthuc(rs.getTime("thoigianketthuc"));
-                
                 list.add(lich);
             }
         } catch (Exception e) {

@@ -13,9 +13,12 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import pbl3quanlynhanvien.DTO.Nhanvien_Lich;
+import pbl3quanlynhanvien.testQLLich.test;
 
 /**
  *
@@ -134,5 +137,115 @@ public class NhanVien_LichDAO {
             e.printStackTrace();
         }
         return count;
+    }
+    
+    public List<Integer> getID_lichInCurrentDay(){
+        List<Integer> list = new ArrayList<>();
+        String sql = "select id_lich from lich where ngaylamviec = ?";
+                    try(
+                            Connection con = DatabaseHelper.openConnection();
+                            PreparedStatement psttm = con.prepareStatement(sql);) {
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+                    LocalDateTime now = LocalDateTime.now();  
+                    String day = dtf.format(now);
+               
+                    
+                    psttm.setString(1, day);
+                    ResultSet rs = psttm.executeQuery();
+                    while(rs.next())
+                    {
+                         list.add(rs.getInt("id_lich"));
+                    }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+                    return list;
+    }
+    
+    //list_id_lich_current_day get from getId_lichInCurrentDay
+    public List<Integer> getAllIdLichCurentDayByIdNhanVien(String id_nhanvien, List<Integer> list_id_lich_current_day)
+    {  
+ 
+        List<Integer> list = new ArrayList<>();
+        
+            String sql = "select * from nhanvien_lich where id_lich = ? and id_nhanvien = ?";
+            for (Integer integer : list_id_lich_current_day) {
+            try(
+                            Connection con = DatabaseHelper.openConnection();
+                            PreparedStatement psttm = con.prepareStatement(sql);) {
+                    
+                    psttm.setInt(1, integer);
+                    psttm.setString(2, id_nhanvien);
+                    ResultSet rs = psttm.executeQuery();
+                    if(rs.next())
+                    {
+                        list.add(rs.getInt("id_lich")) ;
+                    }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        }
+                    
+        
+        return list;
+        
+    }
+    
+    public boolean checkTimeStartExist(int id_lich, String id_nhan_vien)
+    {
+        boolean flag = false;
+        
+        String sql = "select * from nhanvien_lich where id_lich = ? and id_nhanvien = ?";
+        
+        try(
+                Connection con = DatabaseHelper.openConnection();
+                PreparedStatement psttm = con.prepareStatement(sql);) {
+            
+            psttm.setInt(1, id_lich);
+            psttm.setString(2, id_nhan_vien);
+            ResultSet rs = psttm.executeQuery();
+            
+            if(rs.next())
+            {
+                if(rs.getTimestamp("thoigianbatdau") != null)
+                {
+                    flag = true;
+                }
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return flag;
+    }
+    
+    public boolean checkTimeEndtExist(int id_lich, String id_nhan_vien)
+    {
+        boolean flag = false;
+        
+        String sql = "select * from nhanvien_lich where id_lich = ? and id_nhanvien = ?";
+        
+        try(
+                Connection con = DatabaseHelper.openConnection();
+                PreparedStatement psttm = con.prepareStatement(sql);) {
+            
+            psttm.setInt(1, id_lich);
+            psttm.setString(2, id_nhan_vien);
+            ResultSet rs = psttm.executeQuery();
+            
+            if(rs.next())
+            {
+                if(rs.getTimestamp("thoigianketthuc") != null)
+                {
+                    flag = true;
+                }
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return flag;
     }
 }

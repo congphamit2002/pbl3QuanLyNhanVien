@@ -27,6 +27,4 @@ public class ShareData {
     public void setId_nhanvien(String id_nhanvien) {
         this.id_nhanvien = id_nhanvien;
     }
-    
-    
 }

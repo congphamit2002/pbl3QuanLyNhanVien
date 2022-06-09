@@ -17,46 +17,32 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jSeparator1" max="32767" attributes="0"/>
+                  <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jSeparator1" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblSoNgayDiLam" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lblSoNgayDiLam" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="lblCurrentDay" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
-                                              <Component id="lblDiemDanh" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="lblTimeDiemDanh" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="lblBuoiLam" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="281" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <Component id="lblCurrentDay" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                                      <Component id="lblDiemDanh" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblTimeDiemDanh" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="lblBuoiLam" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="281" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="300" max="-2" attributes="0"/>
-                              <Component id="btnDiemDanh" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -70,15 +56,18 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="lblTimeEnd" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="110" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="190" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
+              <Component id="btnCheckIn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+              <Component id="btnCheckOut" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -119,7 +108,10 @@
               <EmptySpace pref="32" max="32767" attributes="0"/>
               <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnDiemDanh" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnCheckIn" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCheckOut" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -176,23 +168,9 @@
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator2">
     </Component>
-    <Component class="javax.swing.JButton" name="btnDiemDanh">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="1"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/pbl3quanlynhanvien/icons/diemdanh.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="&#x110;I&#x1ec2;M DANH"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDiemDanhActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#x110;i&#x1ec3;m danh l&#x1ea7;n 1 l&#xfa;c:"/>
+        <Property name="text" type="java.lang.String" value="Check-in l&#xfa;c"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTimeStart">
@@ -202,7 +180,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#x110;i&#x1ec3;m danh l&#x1ea7;n 2 l&#xfa;c:"/>
+        <Property name="text" type="java.lang.String" value="Check-out l&#xfa;c"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTimeEnd">
@@ -219,6 +197,34 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel8"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCheckIn">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/pbl3quanlynhanvien/icons/check in 16.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Check-in"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCheckInActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCheckOut">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/pbl3quanlynhanvien/icons/check out 16.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Check-out"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCheckOutActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

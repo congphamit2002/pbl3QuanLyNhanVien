@@ -121,6 +121,16 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuDanhMuc_LichLamViec1NVActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator23">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuDanhSach_ThongTinCaNhan">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Th&#xf4;ng tin c&#xe1; nh&#xe2;n"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuDanhSach_ThongTinCaNhanActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
             </MenuItem>
           </SubComponents>

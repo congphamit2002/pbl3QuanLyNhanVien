@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PC/OneDrive%20-%20The%20University%20of%20Technology/Documents/NetBeansProjects/pbl3quanlynhanvien/src/pbl3quanlynhanvien/view/MainForm.java</file>
-            <file>file:/C:/Users/PC/OneDrive%20-%20The%20University%20of%20Technology/Documents/NetBeansProjects/pbl3quanlynhanvien/src/pbl3quanlynhanvien/view/QLNVForm.java</file>
-            <file>file:/C:/Users/PC/OneDrive%20-%20The%20University%20of%20Technology/Documents/NetBeansProjects/pbl3quanlynhanvien/src/pbl3quanlynhanvien/DAL/QuanLyXepLichDAO.java</file>
-            <file>file:/C:/Users/PC/OneDrive%20-%20The%20University%20of%20Technology/Documents/NetBeansProjects/pbl3quanlynhanvien/src/pbl3quanlynhanvien/DTO/ShareData.java</file>
-            <file>file:/C:/Users/PC/OneDrive%20-%20The%20University%20of%20Technology/Documents/NetBeansProjects/pbl3quanlynhanvien/src/pbl3quanlynhanvien/BLL/QLNVBLL.java</file>
-            <file>file:/C:/Users/PC/OneDrive%20-%20The%20University%20of%20Technology/Documents/NetBeansProjects/pbl3quanlynhanvien/src/pbl3quanlynhanvien/view/LoginForm.java</file>
-            <file>file:/C:/Users/PC/OneDrive%20-%20The%20University%20of%20Technology/Documents/NetBeansProjects/pbl3quanlynhanvien/src/pbl3quanlynhanvien/view/DoiMatKhauPanel.java</file>
-            <file>file:/C:/Users/PC/OneDrive%20-%20The%20University%20of%20Technology/Documents/NetBeansProjects/pbl3quanlynhanvien/src/pbl3quanlynhanvien/view/TInhLuongPanel.java</file>
+            <file>file:/C:/Users/PC/OneDrive%20-%20The%20University%20of%20Technology/Documents/NetBeansProjects/pbl3quanlynhanvien/src/pbl3quanlynhanvien/testQLLich/test.java</file>
+            <file>file:/C:/Users/PC/OneDrive%20-%20The%20University%20of%20Technology/Documents/NetBeansProjects/pbl3quanlynhanvien/src/pbl3quanlynhanvien/testQLLich/thuatToanDiTruyen.java</file>
+            <file>file:/C:/Users/PC/OneDrive%20-%20The%20University%20of%20Technology/Documents/NetBeansProjects/pbl3quanlynhanvien/src/pbl3quanlynhanvien/BLL/QuanLyTienLuong.java</file>
+            <file>file:/C:/Users/PC/OneDrive%20-%20The%20University%20of%20Technology/Documents/NetBeansProjects/pbl3quanlynhanvien/src/pbl3quanlynhanvien/BLL/QuanLyDiemDanhBLL.java</file>
         </group>
     </open-files>
 </project-private>
