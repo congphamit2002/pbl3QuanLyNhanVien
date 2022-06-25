@@ -16,7 +16,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import pbl3quanlynhanvien.BLL.QuanLyDiemDanhBLL;
-import pbl3quanlynhanvien.BLL.QuanLyTienLuong;
+import pbl3quanlynhanvien.BLL.QuanLyTienLuongBLL;
 import pbl3quanlynhanvien.DAL.DatabaseHelper;
 import pbl3quanlynhanvien.DAL.LichChiTietDAO;
 import pbl3quanlynhanvien.DAL.LichDAO;
@@ -655,6 +655,6 @@ public class test {
         } else {
             System.out.println("Check out fail");
         }
-        List<LuongNhanVien> list = QuanLyTienLuong.getInstance().getAllLuongNhanVien("Pha Che");
+        List<LuongNhanVien> list = QuanLyTienLuongBLL.getInstance().getAllLuongNhanVien("Pha Che");
     }
 }

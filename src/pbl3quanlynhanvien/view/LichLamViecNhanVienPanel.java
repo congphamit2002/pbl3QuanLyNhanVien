@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import pbl3quanlynhanvien.BLL.QuanLyXepLichBLL;
 import pbl3quanlynhanvien.DAL.MessageDialogHelper;
 import pbl3quanlynhanvien.DAL.QuanLyXepLichDAO;
+import pbl3quanlynhanvien.DTO.ShareData;
 
 /**
  *
@@ -23,6 +24,11 @@ public class LichLamViecNhanVienPanel extends javax.swing.JPanel {
     public LichLamViecNhanVienPanel() {
         initComponents();
         showLich();
+        ShareData data = new ShareData();
+        if(ShareData.getNguoiDangNhap().getRole().equals("User"))
+            btnXepLich.setEnabled(false);
+        else 
+            btnXepLich.setEnabled(true);
     }
 
     /**

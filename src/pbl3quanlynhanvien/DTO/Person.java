@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class Person {
     private String id_nhanvien, hoten, sdt, diachi, cccd, email, username;
-    private int socalam,id_chucvu;
+    private int id_chucvu;
     private boolean gioitinh;
     private Date ngaysinh;
 
@@ -70,14 +70,6 @@ public class Person {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public int getSocalam() {
-        return socalam;
-    }
-
-    public void setSocalam(int socalam) {
-        this.socalam = socalam;
     }
 
     public boolean isGioitinh() {

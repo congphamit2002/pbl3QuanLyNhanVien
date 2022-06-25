@@ -625,7 +625,7 @@ public class MainForm extends javax.swing.JFrame {
                 mnuDanhMuc_LichLamViec.setEnabled(false);
                 mnuDanhMuc_TinhLuong.setEnabled(false);
                 btnQLNV.setEnabled(false);
-                btnLichLamViec.setEnabled(false);
+                btnLichLamViec.setEnabled(true);
                 btnTinhLuong.setEnabled(false);
             } else return;
     }

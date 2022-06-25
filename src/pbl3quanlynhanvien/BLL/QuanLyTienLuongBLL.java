@@ -14,7 +14,6 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import pbl3quanlynhanvien.DAL.ChucVuDAO;
-import pbl3quanlynhanvien.DAL.LichBanDAO;
 import pbl3quanlynhanvien.DAL.LichDAO;
 import pbl3quanlynhanvien.DAL.NhanVien_LichDAO;
 import pbl3quanlynhanvien.DAL.PersonDAO;
@@ -26,19 +25,19 @@ import pbl3quanlynhanvien.DTO.Nhanvien_Lich;
  *
  * @author PC
  */
-public class QuanLyTienLuong {
+public class QuanLyTienLuongBLL {
 //    .
 
-    private static QuanLyTienLuong Instance;
+    private static QuanLyTienLuongBLL Instance;
 
-    public static QuanLyTienLuong getInstance() {
+    public static QuanLyTienLuongBLL getInstance() {
         if (Instance == null) {
-            Instance = new QuanLyTienLuong();
+            Instance = new QuanLyTienLuongBLL();
         }
         return Instance;
     }
 
-    private static void setInstance(QuanLyTienLuong Instance) {
+    private static void setInstance(QuanLyTienLuongBLL Instance) {
     }
 
     public LuongNhanVien_ChiTiet tinhTimeLamVaSoPhutDiTre(String buoi, Date timeStart, Date timeEnd) {
@@ -172,7 +171,7 @@ public class QuanLyTienLuong {
 
                         Date date1 = format.parse(timeStart);
                         Date date2 = format.parse(timeEnd);
-                        LuongNhanVien_ChiTiet luongchitiet = QuanLyTienLuong.getInstance().tinhTimeLamVaSoPhutDiTre(LichDAO.getInstance().getBuoiLamByID_Lich(nhanvien_Lich.getId_lich()),
+                        LuongNhanVien_ChiTiet luongchitiet = QuanLyTienLuongBLL.getInstance().tinhTimeLamVaSoPhutDiTre(LichDAO.getInstance().getBuoiLamByID_Lich(nhanvien_Lich.getId_lich()),
                                  date1, date2);
                         if ((ChucVuDAO.getInstance().getLuongCoBanByTenChucVu(tenchucvu) * 5.5 - (luongchitiet.getSoPhutDiTre() / 10.0) * 5000) < 0) {
                             hour += 0;
@@ -218,7 +217,7 @@ public class QuanLyTienLuong {
     public void renderToTable(DefaultTableModel model, String tenchucvu) {
         model.setRowCount(0);
         DecimalFormat df = new DecimalFormat("#.###");
-        for (LuongNhanVien luongNhanVien : QuanLyTienLuong.getInstance().getAllLuongNhanVien(tenchucvu)) {
+        for (LuongNhanVien luongNhanVien : QuanLyTienLuongBLL.getInstance().getAllLuongNhanVien(tenchucvu)) {
             model.addRow(new Object[]{luongNhanVien.getId_nhanvien(), luongNhanVien.getHoTen(), luongNhanVien.getLuongCoBan(),
                  luongNhanVien.getSoNgayPhaiLam(), luongNhanVien.getSoNgayDiLam(), luongNhanVien.getSoNgayNghi(), 
                  df.format(luongNhanVien.getSoGioLam()), df.format(luongNhanVien.getSoPhutDiTre()), df.format(luongNhanVien.getLuong())});

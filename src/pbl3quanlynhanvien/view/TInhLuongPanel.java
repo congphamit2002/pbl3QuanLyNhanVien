@@ -9,7 +9,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pbl3quanlynhanvien.BLL.QuanLyLichBanVaLichMotNhanVienBLL;
-import pbl3quanlynhanvien.BLL.QuanLyTienLuong;
+import pbl3quanlynhanvien.BLL.QuanLyTienLuongBLL;
 import pbl3quanlynhanvien.DAL.ChucVuDAO;
 import pbl3quanlynhanvien.DAL.DataValidator;
 import pbl3quanlynhanvien.DAL.MessageDialogHelper;
@@ -205,7 +205,7 @@ public class TInhLuongPanel extends javax.swing.JPanel {
 
     private void btnPayRollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayRollActionPerformed
         // TODO add your handling code here:
-        QuanLyTienLuong.getInstance().renderToTable(model, cbxChucVu.getSelectedItem().toString());
+        QuanLyTienLuongBLL.getInstance().renderToTable(model, cbxChucVu.getSelectedItem().toString());
     }//GEN-LAST:event_btnPayRollActionPerformed
 
     private void cbxChucVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxChucVuActionPerformed
@@ -241,7 +241,7 @@ public class TInhLuongPanel extends javax.swing.JPanel {
         {
                 return;
         }
-        if(QuanLyTienLuong.getInstance().updateLuongCoBan(Double.parseDouble(txtUpdateLuongTheoGio.getText()), cbxChucVu.getSelectedItem().toString()))
+        if(QuanLyTienLuongBLL.getInstance().updateLuongCoBan(Double.parseDouble(txtUpdateLuongTheoGio.getText()), cbxChucVu.getSelectedItem().toString()))
             {
                 MessageDialogHelper.showMessageDialog(parent, "Lương theo giờ đã được cập nhật thành công", "Thông báo");
                 cbxChucVuActionPerformed(evt);
