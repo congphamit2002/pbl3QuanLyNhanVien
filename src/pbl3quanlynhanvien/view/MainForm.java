@@ -257,6 +257,7 @@ public class MainForm extends javax.swing.JFrame {
         mnuHeThong.add(mnuHeThong_Logout);
         mnuHeThong.add(jSeparator1);
 
+        mnuHeThong_DoiMK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pbl3quanlynhanvien/icons/change-password-16.png"))); // NOI18N
         mnuHeThong_DoiMK.setText("Đổi mật khẩu");
         mnuHeThong_DoiMK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -331,6 +332,7 @@ public class MainForm extends javax.swing.JFrame {
         mnuDanhMuc.add(mnuDanhMuc_LichLamViec1NV);
         mnuDanhMuc.add(jSeparator23);
 
+        mnuDanhSach_ThongTinCaNhan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pbl3quanlynhanvien/icons/profile-16.png"))); // NOI18N
         mnuDanhSach_ThongTinCaNhan.setText("Thông tin cá nhân");
         mnuDanhSach_ThongTinCaNhan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

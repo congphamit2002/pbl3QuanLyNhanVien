@@ -23,6 +23,4 @@ public class DatabaseHelper {
 	        Connection connection= (Connection) DriverManager.getConnection(conUrl,"root","admin");// mo ket noi csdl
 	        return connection;// tra ve doi tuong connection sau khi da ket noi
 	    }
-	    
-	 
 }

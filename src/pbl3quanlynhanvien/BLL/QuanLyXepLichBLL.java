@@ -5,6 +5,7 @@
 package pbl3quanlynhanvien.BLL;
 
 import javax.swing.table.DefaultTableModel;
+import pbl3quanlynhanvien.DAL.LichDAO;
 import pbl3quanlynhanvien.DAL.QuanLyXepLichDAO;
 
 /**
@@ -46,5 +47,9 @@ public class QuanLyXepLichBLL {
     public void RenderToTable(DefaultTableModel modelpv,DefaultTableModel modelpc)
     {
         QuanLyXepLichDAO.getInstance().RenderToTable(modelpv, modelpc);
+    }
+    
+    public void insertDayOfCurrentMonth(){
+        LichDAO.getInstance().insertLichInCurrentMonth();
     }
 }

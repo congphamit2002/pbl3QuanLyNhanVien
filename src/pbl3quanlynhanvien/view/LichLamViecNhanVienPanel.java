@@ -148,6 +148,8 @@ public class LichLamViecNhanVienPanel extends javax.swing.JPanel {
     private boolean check = false;
     private void btnXepLichActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXepLichActionPerformed
         // TODO add your handling code here:
+        
+            QuanLyXepLichBLL.getInstance().insertDayOfCurrentMonth();
             if(QuanLyXepLichBLL.getInstance().checkXepLich())
             {
                 int choice = MessageDialogHelper.showConfirmDialog(this, "Bạn đã thực hiện xếp lịch rồi, có muốn xếp lịch lại không?"

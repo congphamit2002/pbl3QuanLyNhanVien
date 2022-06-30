@@ -27,6 +27,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuHeThong_DoiMK">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/pbl3quanlynhanvien/icons/change-password-16.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x1ed5;i m&#x1ead;t kh&#x1ea9;u"/>
               </Properties>
               <Events>
@@ -125,6 +128,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuDanhSach_ThongTinCaNhan">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/pbl3quanlynhanvien/icons/profile-16.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Th&#xf4;ng tin c&#xe1; nh&#xe2;n"/>
               </Properties>
               <Events>

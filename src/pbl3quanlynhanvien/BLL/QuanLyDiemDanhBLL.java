@@ -14,7 +14,6 @@ import pbl3quanlynhanvien.DAL.LichDAO;
 import pbl3quanlynhanvien.DAL.NhanVien_LichDAO;
 import pbl3quanlynhanvien.DTO.LichChiTiet;
 import pbl3quanlynhanvien.DTO.Nhanvien_Lich;
-import pbl3quanlynhanvien.testQLLich.test;
 
 /**
  *
@@ -173,7 +172,6 @@ public class QuanLyDiemDanhBLL {
 
     public boolean checkOut(String id_nhanvien) {
         boolean isSuccess = false;
-        test x = new test();
         try {
 
             DateFormat dateFormat1 = new SimpleDateFormat("HH:mm:ss");

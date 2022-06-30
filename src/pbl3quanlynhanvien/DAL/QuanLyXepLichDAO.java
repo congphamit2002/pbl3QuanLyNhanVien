@@ -12,6 +12,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Random;
 import javax.swing.table.DefaultTableModel;
 import pbl3quanlynhanvien.DAL.DatabaseHelper;
@@ -200,13 +201,21 @@ try(Connection con = DatabaseHelper.openConnection()){
    public void luudulieuthanhvienban(int s[][],int c[][],int t[][],String mnv[],int m,int n) throws Exception{
        QuanLyXepLichDAO ditruyen = new QuanLyXepLichDAO();
        //luudulieuthanhvienban(phucvus,phucvuc,phucvut,manvpv, m, n);
-        String sql = "select * from lich where lich.id_lich in (select ban.id_lich from ban where id_nhanvien=?)";
+            String sql = "select * from lich where lich.id_lich in (select ban.id_lich from ban where id_nhanvien=?) "
+                    + "and month(ngaylamviec) = ?";
         try(
                 Connection con = DatabaseHelper.openConnection();//mo ket noi
                 PreparedStatement pre = con.prepareStatement(sql);
                 ){
+            
+            DateFormat dateFormatMonth = new SimpleDateFormat("MM");
+
+            Date date = new Date();
+            String month = dateFormatMonth.format(date);
+            
             for(int i=0;i<m;i++){
             pre.setString(1,mnv[i]);
+            pre.setString(2, "month");
               try(  ResultSet rs = pre.executeQuery()){
                 while(rs.next())
                 { 
@@ -510,37 +519,35 @@ try(Connection con = DatabaseHelper.openConnection()){
 
      }
         
-         public void luulichlam(int s[][],int c[][],int t[][],String manv[]) throws Exception {
-        
-        
-        String sql = "INSERT INTO `nhanvien_lich`( `id_nhanvien`, `id_lich`)"+ "VALUES (?,?)";
-        
-        try(
-                Connection con = DatabaseHelper.openConnection();//mo ket noi
-                PreparedStatement pre= con.prepareStatement(sql);
-                ){
-                for(int i=0;i<n;i++){
-                for(int j=0;j<=1;j++)
+        public void luulichlam(int s[][], int c[][], int t[][], String manv[]) throws Exception {
+
+        String sql = "INSERT INTO `nhanvien_lich`( `id_nhanvien`, `id_lich`)" + "VALUES (?,?)";
+        int id = LichDAO.getInstance().getIdLichDauThang();
+        try (
+                 Connection con = DatabaseHelper.openConnection();//mo ket noi
+                  PreparedStatement pre = con.prepareStatement(sql);) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j <= 1; j++)
                    try {
-            pre.setString(1,manv[s[j][i]]);
-            pre.setInt(2, i*3+1);
-             pre.executeUpdate();
-            pre.setString(1,manv[c[j][i]]);
-            pre.setInt(2, i*3+2);
-            pre.executeUpdate();
-            pre.setString(1,manv[t[j][i]]);
-            pre.setInt(2, i*3+3);
-            pre.executeUpdate();
-            
-                }catch (SQLException ex) {
-            ex.printStackTrace();
-            
-        }
-        }
+                    pre.setString(1, manv[s[j][i]]);
+                    pre.setInt(2, (id - 1) + i * 3 + 1);
+                    pre.executeUpdate();
+                    pre.setString(1, manv[c[j][i]]);
+                    pre.setInt(2, (id -1) +  i * 3 + 2);
+                    pre.executeUpdate();
+                    pre.setString(1, manv[t[j][i]]);
+                    pre.setInt(2, (id -1 ) + i * 3 + 3);
+                    pre.executeUpdate();
+
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+
+                }
+            }
 
         }
-}
-         
+    }
+
          
          public void RenderToTable(DefaultTableModel modelpv, DefaultTableModel modelpc)
          {
