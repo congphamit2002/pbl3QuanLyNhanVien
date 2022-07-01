@@ -93,4 +93,35 @@ public class QuanLyLichBanVaLichMotNhanVienBLL {
         return false;
     }
          
+    public boolean xoaLichBan(String day, String buoi)
+    {
+        String sql = "select id_lich from lich where ngaylamviec = ? and buoi = ?";
+        String id_lich = "";
+        ShareData share = new ShareData();
+        try(
+                Connection con = DatabaseHelper.openConnection();
+                PreparedStatement psttm = con.prepareStatement(sql);) {
+            psttm.setString(1, day);
+            psttm.setString(2, buoi);
+            
+            ResultSet rs = psttm.executeQuery();
+            if(rs.next())
+            {
+                id_lich = rs.getString("id_lich");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        sql = "delete from ban where id_lich = ? and id_nhanvien = ?";
+        try(
+                Connection con = DatabaseHelper.openConnection();
+                PreparedStatement psttm = con.prepareStatement(sql);) {
+            psttm.setString(1, id_lich);
+            psttm.setString(2, share.getId_nhanvien());
+            return psttm.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

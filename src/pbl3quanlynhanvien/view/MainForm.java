@@ -503,13 +503,14 @@ public class MainForm extends javax.swing.JFrame {
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
         
-            tplMainBoard.removeAll();
-             QLNVPanel = null;
-         LichLamViecAllNVPanel = null;
+        tplMainBoard.removeAll();
+        QLNVPanel = null;
+        LichLamViecAllNVPanel = null;
         dangKyLichBanPanel = null;
         TinhLuongPanel = null;
-         LichLamViec1NVPanel = null;
+        LichLamViec1NVPanel = null;
         diemDanhPanel = null;
+        doiMatKhauPanel = null;
         LoginForm login = new LoginForm(this, true);
         login.setVisible(true);
         processLoginSuccessful();

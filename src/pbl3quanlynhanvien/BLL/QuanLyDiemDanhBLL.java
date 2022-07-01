@@ -58,7 +58,7 @@ public class QuanLyDiemDanhBLL {
             toi.setSeconds(0);
             java.sql.Timestamp timeToi = new java.sql.Timestamp(chieu.getTime());
 
-            List<Integer> list_id_lich_current_day = new ArrayList<>();
+                List<Integer> list_id_lich_current_day = new ArrayList<>();
             list_id_lich_current_day = NhanVien_LichDAO.getInstance().getAllIdLichCurentDayByIdNhanVien(id_nhanvien,
                     NhanVien_LichDAO.getInstance().getID_lichInCurrentDay());
 

@@ -91,6 +91,11 @@ public class DangKyLichBanPanel extends javax.swing.JPanel {
 
         btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pbl3quanlynhanvien/icons/Actions-edit-delete-icon-16.png"))); // NOI18N
         btnCancel.setText("Hủy");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         tblLichBan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -193,6 +198,26 @@ public class DangKyLichBanPanel extends javax.swing.JPanel {
                         QuanLyLichBanVaLichMotNhanVienBLL.getInstance().renderLichBanToTable(model);
                     }
     }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+        
+        SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String day = dayFormat.format(dateChoose.getDate());
+        String buoi = cbxBuoi.getSelectedItem().toString();
+        System.out.println("day " + day);
+        
+        if(day == null)
+        {
+             MessageDialogHelper.showErrorDialog(this, "Ngày bận để xóa không được để trống", "Lỗi");
+             return;
+        }
+        if (!QuanLyLichBanVaLichMotNhanVienBLL.getInstance().xoaLichBan(day, buoi)) {
+            MessageDialogHelper.showErrorDialog(this, "Không thể xóa lịch bận do lỗi", "Lỗi");
+        } else {
+            QuanLyLichBanVaLichMotNhanVienBLL.getInstance().renderLichBanToTable(model);
+        }
+    }//GEN-LAST:event_btnCancelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
